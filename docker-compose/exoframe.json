@@ -1,0 +1,10 @@
+{
+  "name": "exoframe-test-compose",
+  "restart": "on-failure:2",
+  "domain": "express.api.lndgrn.xyz",
+  "project": "exoframe-test-compose",
+  "labels": {
+    "traefik.frontend.rule": "Host:express.lndgrn.xyz"
+  },
+  "template": "docker-compose"
+}
