@@ -1,0 +1,35 @@
+version: '3'
+services:
+  express_api:
+    image: ludlun/express_test:latest
+    build: .
+    command: node index.js
+    networks:
+      - traefik
+    working_dir: /app
+    depends_on:
+      - database
+    ports:
+      - '3000:3000'
+    deploy:
+      labels:
+        traefik.port: '3000'
+        traefik.backend: express_api
+        traefik.docker.network: traefik
+        traefik.frontend.rule: 'Host:express.lndgrn.xyz'
+  database:
+    networks:
+      - traefik
+    image: 'postgres:9.6'
+    volumes:
+      - 'database:/var/lib/postgresql/data'
+    ports:
+      - '7772:5432'
+    deploy:
+      labels:
+        traefik.docker.network: traefik
+volumes:
+  database:
+networks:
+  traefik:
+    external: true
