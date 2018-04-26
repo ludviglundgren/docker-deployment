@@ -9,7 +9,7 @@ app.use(cors({
 		methods: '*'
 }));
 
-app.get('/', (req, res) => res.json('Hello World! Build with Buddy Ci!'));
+app.get('/', (req, res) => res.json('Hello World! Build with Buddy Ci!!'));
 
 app.listen(3000, () => {
 		console.log("Hello world!")
