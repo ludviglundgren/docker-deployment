@@ -1,6 +1,5 @@
 {
   "name": "exoframe-test-compose",
-  "restart": "on-failure:2",
   "domain": "express.api.lndgrn.xyz",
   "project": "exoframe-test-compose",
   "labels": {

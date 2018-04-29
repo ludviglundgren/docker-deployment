@@ -1,12 +1,13 @@
-version: '3.5'
+version: '3'
 services:
   exoframe_express_api:
     container_name: exoframe_express_api
     build:
       context: .
       dockerfile: Dockerfile
-    labels:
-      traefik.frontend.rule: 'Host:express.lndgrn.xyz'
+    deploy:
+      labels:
+        traefik.frontend.rule: 'Host:express.lndgrn.xyz'
     working_dir: /app
     depends_on:
       - exoframe_database

@@ -2,7 +2,6 @@ version: '3'
 services:
   express_api:
     image: ludlun/express_test:latest
-    build: .
     command: node index.js
     networks:
       - traefik
